@@ -1,0 +1,14 @@
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\bin\Debug\net9.0-windows\clinica-dental_ev03.exe
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\bin\Debug\net9.0-windows\clinica-dental_ev03.deps.json
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\bin\Debug\net9.0-windows\clinica-dental_ev03.runtimeconfig.json
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\bin\Debug\net9.0-windows\clinica-dental_ev03.dll
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\bin\Debug\net9.0-windows\clinica-dental_ev03.pdb
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.AssemblyInfoInputs.cache
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.AssemblyInfo.cs
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.csproj.CoreCompileInputs.cache
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.dll
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\refint\clinica-dental_ev03.dll
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.pdb
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\clinica-dental_ev03.genruntimeconfig.cache
+C:\Users\Yordy\workspace\ing-informatica-semestre03\programacion-OO\clinica-dental_ev03\clinica-dental_ev03\obj\Debug\net9.0-windows\ref\clinica-dental_ev03.dll
