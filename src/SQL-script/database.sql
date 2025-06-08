@@ -62,4 +62,4 @@ CREATE TABLE pagos (
     FOREIGN KEY (cita_id) REFERENCES citas (cita_id)
 );
 
-
+SELECT * FROM pacientes;
