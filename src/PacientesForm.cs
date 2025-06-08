@@ -6,6 +6,7 @@ namespace clinica_dental_ev03;
 public partial class PacientesForm : Form
 {
     private ClinicaDentalDbContext db = new();
+    Helpers h = new();
     string? idPaciente = null;
 
     public PacientesForm()
@@ -21,7 +22,7 @@ public partial class PacientesForm : Form
 
     private void CleanForm()
     {
-        txtRut.Text = String.Empty;
+        txtRun.Text = String.Empty;
         txtNombres.Text = "";
         txtApellidos.Text = "";
         cbSexo.Text = "";
@@ -32,33 +33,54 @@ public partial class PacientesForm : Form
 
     private void btnGuardar_Click(object sender, EventArgs e)
     {
+        /**
+         * TODO: tanto el campo 'telefono' como el 'correo' pueden ser nulos.
+         * dejarlo asi? o hacerlos campos obligatorios?
+         */
+
         string? err = null;
 
-        if (txtRut.Text.Trim() == "")
+        if (txtRun.Text.Trim() == "")
+        {
             err = "Debes ingresar el 'RUT' del paciente.\n";
+        }
         if (txtNombres.Text.Trim() == "")
+        {
             err += "Debes ingresar los 'NOMBRES' del paciente.\n";
+        }
         if (txtApellidos.Text.Trim() == "")
+        {
             err += "Debes ingresar los 'APELLIDOS' del paciente.\n";
+        }
         if (cbSexo.Text.Trim() == "")
+        {
             err += "Debes seleccionar el 'SEXO' del paciente.\n";
+        }
         if (txtTelefono.Text.Trim() == "")
+        {
             err += "Debes ingresar el 'TELEFONO' del paciente.\n";
+        }
         if (txtCorreo.Text.Trim() == "")
+        {
             err += "Debes ingresar el 'CORREO' del paciente.\n";
+        }
+        else
+        {
+            if (!h.ValidarEmail(txtCorreo.Text))
+            {
+                err += "El 'CORREO' no tiene el formato correcto.\n";
+            }
+        }
         if (err != null)
-            MessageBox.Show(
-                err,
-                "Error de Validacion",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error
-                );
+        {
+            MessageBox.Show(err, "Error de Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         else
         {
             if (idPaciente == null)
             {
                 Paciente newPaciente = new();
-                newPaciente.Rut = txtRut.Text.Trim();
+                newPaciente.Run = txtRun.Text.Trim();
                 newPaciente.Nombre = txtNombres.Text.Trim();
                 newPaciente.Apellido = txtApellidos.Text.Trim();
                 // Retornar la inicial de la opcion seleccionada.
@@ -95,5 +117,70 @@ public partial class PacientesForm : Form
         var pacientes = db.Pacientes.ToList();
         dgvPacientes.DataSource = pacientes;
         dgvPacientes.Columns[7].Visible = false; // ocultar columna 'citas'.
+    }
+
+    private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        h.SoloNumeros(e);
+    }
+
+    private void txtRun_TextChanged(object sender, EventArgs e)
+    {
+        if (txtRun.Text.Trim() != "" && txtRun.Text.Length > 1)
+        {
+            txtRun.Text = h.FormatearRun(txtRun.Text);
+            txtRun.Select(txtRun.Text.Length, 0); // ubicar el cursor al final del texto.
+        }
+    }
+
+    private void txtRun_Leave(object sender, EventArgs e)
+    {
+        if (txtRun.Text.Trim() != "")
+        {
+            if (!h.ValidarRun(txtRun.Text))
+            {
+                MessageBox.Show("El Run ingresado no es válido");
+            }
+            else
+            {
+                // FirstOrDefault(): retorna la primera coincidencia que encuentre.
+                var foundPaciente = db.Pacientes.FirstOrDefault(p => p.Run == txtRun.Text);
+                if (foundPaciente != null)
+                {
+                    MessageBox.Show("El paciente ya se encuentra registrado");
+                    txtRun.Text = "";
+                }
+            }
+        }
+    }
+
+    private void dgvPacientes_MouseClick(object sender, MouseEventArgs e)
+    {
+        txtRun.Text = dgvPacientes.CurrentRow.Cells[0].Value.ToString();
+        idPaciente = dgvPacientes.CurrentRow.Cells[0].Value.ToString();
+        txtNombres.Text = dgvPacientes.CurrentRow.Cells[1].Value.ToString();
+        txtApellidos.Text = dgvPacientes.CurrentRow.Cells[2].Value.ToString();
+        // TODO: retorna la inicial y luego pasa a el nombre completo
+        // por ejemplo: 'M' -> Masculino...
+        cbSexo.SelectedText = dgvPacientes.CurrentRow.Cells[3].Value.ToString();
+        txtTelefono.Text = dgvPacientes.CurrentRow.Cells[4].Value.ToString();
+        txtCorreo.Text = dgvPacientes.CurrentRow.Cells[5].Value.ToString();
+    }
+
+    private void btnEliminar_Click(object sender, EventArgs e)
+    {
+        if (idPaciente != null)
+        {
+            var resp = MessageBox.Show($"Desea eliminar el paciente de RUT: {txtRun.Text}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resp == DialogResult.Yes)
+            {
+                var foundPaciente = db.Pacientes.Find(idPaciente);
+                db.Pacientes.Remove(foundPaciente);
+                db.SaveChanges();
+                CleanForm();
+                ShowPacientes();
+            }
+        }
     }
 }

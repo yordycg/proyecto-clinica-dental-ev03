@@ -31,7 +31,7 @@ partial class PacientesForm
     {
         label1 = new Label();
         label2 = new Label();
-        txtRut = new TextBox();
+        txtRun = new TextBox();
         txtNombres = new TextBox();
         label3 = new Label();
         txtApellidos = new TextBox();
@@ -64,15 +64,17 @@ partial class PacientesForm
         label2.Name = "label2";
         label2.Size = new Size(100, 23);
         label2.TabIndex = 1;
-        label2.Text = "Rut:";
+        label2.Text = "Run:";
         label2.TextAlign = ContentAlignment.MiddleRight;
         // 
-        // txtRut
+        // txtRun
         // 
-        txtRut.Location = new Point(160, 100);
-        txtRut.Name = "txtRut";
-        txtRut.Size = new Size(150, 23);
-        txtRut.TabIndex = 2;
+        txtRun.Location = new Point(160, 100);
+        txtRun.Name = "txtRun";
+        txtRun.Size = new Size(150, 23);
+        txtRun.TabIndex = 2;
+        txtRun.TextChanged += txtRun_TextChanged;
+        txtRun.Leave += txtRun_Leave;
         // 
         // txtNombres
         // 
@@ -121,6 +123,7 @@ partial class PacientesForm
         txtTelefono.Name = "txtTelefono";
         txtTelefono.Size = new Size(150, 23);
         txtTelefono.TabIndex = 10;
+        txtTelefono.KeyPress += txtTelefono_KeyPress;
         // 
         // label6
         // 
@@ -175,6 +178,7 @@ partial class PacientesForm
         btnEliminar.TabIndex = 15;
         btnEliminar.Text = "Eliminar";
         btnEliminar.UseVisualStyleBackColor = true;
+        btnEliminar.Click += btnEliminar_Click;
         // 
         // dgvPacientes
         // 
@@ -184,6 +188,7 @@ partial class PacientesForm
         dgvPacientes.Size = new Size(560, 253);
         dgvPacientes.TabIndex = 16;
         dgvPacientes.Text = "dataGridView1";
+        dgvPacientes.MouseClick += dgvPacientes_MouseClick;
         // 
         // cbSexo
         // 
@@ -213,7 +218,7 @@ partial class PacientesForm
         Controls.Add(label4);
         Controls.Add(txtNombres);
         Controls.Add(label3);
-        Controls.Add(txtRut);
+        Controls.Add(txtRun);
         Controls.Add(label2);
         Controls.Add(label1);
         Name = "PacientesForm";
@@ -232,7 +237,7 @@ partial class PacientesForm
     private System.Windows.Forms.Button btnEliminar;
     private System.Windows.Forms.DataGridView dgvPacientes;
 
-    private System.Windows.Forms.TextBox txtRut;
+    private System.Windows.Forms.TextBox txtRun;
     private System.Windows.Forms.TextBox txtNombres;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.TextBox txtApellidos;
