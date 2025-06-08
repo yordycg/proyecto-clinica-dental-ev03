@@ -12,6 +12,7 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
         //Application.Run(new PacientesForm());
-        Application.Run(new DentistasForm());
+        //Application.Run(new DentistasForm());
+        Application.Run(new ServiciosForm());
     }
 }
