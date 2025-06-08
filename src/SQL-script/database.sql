@@ -2,7 +2,7 @@ CREATE DATABASE clinicaDentalDB;
 USE clinicaDentalDB;
 
 CREATE TABLE pacientes (
-    rut VARCHAR(15) PRIMARY KEY,
+    run VARCHAR(15) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     sexo CHAR NOT NULL CHECK (sexo in ('M', 'F')),
@@ -34,12 +34,12 @@ CREATE TABLE estado_cita (
 
 CREATE TABLE citas (
     cita_id INT PRIMARY KEY IDENTITY(1,1),
-    rut_paciente VARCHAR(15) NOT NULL,
+    run_paciente VARCHAR(15) NOT NULL,
     dentista_id INT NOT NULL,
     estado_id INT NOT NULL,
     fecha DATE NOT NULL,
     hora TIME NOT NULL,
-    FOREIGN KEY (rut_paciente) REFERENCES pacientes (rut),
+    FOREIGN KEY (run_paciente) REFERENCES pacientes (run),
     FOREIGN KEY (dentista_id) REFERENCES dentistas (dentista_id),
     FOREIGN KEY (estado_id) REFERENCES estado_cita (estado_id)
 );
