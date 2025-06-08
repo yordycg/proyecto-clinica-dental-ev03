@@ -11,7 +11,7 @@ public partial class Servicio
 
     public int Costo { get; set; }
 
-    public TimeOnly Duracion { get; set; }
+    public int Duracion { get; set; }
 
     public virtual ICollection<CitaServicio> CitaServicios { get; set; } = new List<CitaServicio>();
 }

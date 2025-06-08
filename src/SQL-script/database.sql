@@ -24,7 +24,7 @@ CREATE TABLE servicios (
     servicio_id INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL UNIQUE,
     costo INT NOT NULL CHECK(costo > 0) DEFAULT 0,
-    duracion TIME NOT NULL
+    duracion INT NOT NULL
 );
 
 CREATE TABLE estado_cita (
