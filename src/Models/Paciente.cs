@@ -5,7 +5,7 @@ namespace clinica_dental_ev03.Models;
 
 public partial class Paciente
 {
-    public string Rut { get; set; } = null!;
+    public string Run { get; set; } = null!;
 
     public string Nombre { get; set; } = null!;
 

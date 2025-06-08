@@ -7,7 +7,7 @@ public partial class Cita
 {
     public int CitaId { get; set; }
 
-    public string RutPaciente { get; set; } = null!;
+    public string RunPaciente { get; set; } = null!;
 
     public int DentistaId { get; set; }
 
@@ -25,5 +25,5 @@ public partial class Cita
 
     public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
 
-    public virtual Paciente RutPacienteNavigation { get; set; } = null!;
+    public virtual Paciente RunPacienteNavigation { get; set; } = null!;
 }
