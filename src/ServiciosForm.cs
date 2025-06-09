@@ -87,7 +87,6 @@ namespace clinica_dental_ev03
                 CleanForm();
                 ShowServicios();
             }
-
         }
 
         private void ShowServicios()

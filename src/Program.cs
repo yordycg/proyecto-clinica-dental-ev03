@@ -13,6 +13,7 @@ static class Program
         ApplicationConfiguration.Initialize();
         //Application.Run(new PacientesForm());
         //Application.Run(new DentistasForm());
-        Application.Run(new ServiciosForm());
+        //Application.Run(new ServiciosForm());
+        Application.Run(new CitaForm());
     }
 }
