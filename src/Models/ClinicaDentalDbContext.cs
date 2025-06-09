@@ -17,11 +17,9 @@ public partial class ClinicaDentalDbContext : DbContext
 
     public virtual DbSet<Cita> Citas { get; set; }
 
-    public virtual DbSet<CitaServicio> CitaServicios { get; set; }
-
     public virtual DbSet<Dentista> Dentistas { get; set; }
 
-    public virtual DbSet<EstadoCitum> EstadoCita { get; set; }
+    public virtual DbSet<DetalleCitum> DetalleCita { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
@@ -37,13 +35,16 @@ public partial class ClinicaDentalDbContext : DbContext
     {
         modelBuilder.Entity<Cita>(entity =>
         {
-            entity.HasKey(e => e.CitaId).HasName("PK__citas__5AC1B05BD4055015");
+            entity.HasKey(e => e.CitaId).HasName("PK__citas__5AC1B05BA08B06BE");
 
             entity.ToTable("citas");
 
             entity.Property(e => e.CitaId).HasColumnName("cita_id");
             entity.Property(e => e.DentistaId).HasColumnName("dentista_id");
-            entity.Property(e => e.EstadoId).HasColumnName("estado_id");
+            entity.Property(e => e.Estado)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("estado");
             entity.Property(e => e.Fecha).HasColumnName("fecha");
             entity.Property(e => e.Hora).HasColumnName("hora");
             entity.Property(e => e.RunPaciente)
@@ -54,43 +55,17 @@ public partial class ClinicaDentalDbContext : DbContext
             entity.HasOne(d => d.Dentista).WithMany(p => p.Cita)
                 .HasForeignKey(d => d.DentistaId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__citas__dentista___5EBF139D");
-
-            entity.HasOne(d => d.Estado).WithMany(p => p.Cita)
-                .HasForeignKey(d => d.EstadoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__citas__estado_id__5FB337D6");
+                .HasConstraintName("FK__citas__dentista___5629CD9C");
 
             entity.HasOne(d => d.RunPacienteNavigation).WithMany(p => p.Cita)
                 .HasForeignKey(d => d.RunPaciente)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__citas__run_pacie__5DCAEF64");
-        });
-
-        modelBuilder.Entity<CitaServicio>(entity =>
-        {
-            entity.HasKey(e => e.CitaServicioId).HasName("PK__cita_ser__57B8A0117CDB262B");
-
-            entity.ToTable("cita_servicio");
-
-            entity.Property(e => e.CitaServicioId).HasColumnName("cita_servicio_id");
-            entity.Property(e => e.CitaId).HasColumnName("cita_id");
-            entity.Property(e => e.ServicioId).HasColumnName("servicio_id");
-
-            entity.HasOne(d => d.Cita).WithMany(p => p.CitaServicios)
-                .HasForeignKey(d => d.CitaId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__cita_serv__cita___75A278F5");
-
-            entity.HasOne(d => d.Servicio).WithMany(p => p.CitaServicios)
-                .HasForeignKey(d => d.ServicioId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__cita_serv__servi__76969D2E");
+                .HasConstraintName("FK__citas__run_pacie__5535A963");
         });
 
         modelBuilder.Entity<Dentista>(entity =>
         {
-            entity.HasKey(e => e.DentistaId).HasName("PK__dentista__EA14642BA7AA9B4F");
+            entity.HasKey(e => e.DentistaId).HasName("PK__dentista__EA14642BEE766E0D");
 
             entity.ToTable("dentistas");
 
@@ -116,22 +91,30 @@ public partial class ClinicaDentalDbContext : DbContext
                 .HasColumnName("telefono");
         });
 
-        modelBuilder.Entity<EstadoCitum>(entity =>
+        modelBuilder.Entity<DetalleCitum>(entity =>
         {
-            entity.HasKey(e => e.EstadoId).HasName("PK__estado_c__053774EFE02B779D");
+            entity.HasKey(e => e.DetalleCitaId).HasName("PK__detalle___250F2C2F8F246A77");
 
-            entity.ToTable("estado_cita");
+            entity.ToTable("detalle_cita");
 
-            entity.Property(e => e.EstadoId).HasColumnName("estado_id");
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("nombre");
+            entity.Property(e => e.DetalleCitaId).HasColumnName("detalle_cita_id");
+            entity.Property(e => e.CitaId).HasColumnName("cita_id");
+            entity.Property(e => e.ServicioId).HasColumnName("servicio_id");
+
+            entity.HasOne(d => d.Cita).WithMany(p => p.DetalleCita)
+                .HasForeignKey(d => d.CitaId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__detalle_c__cita___5EBF139D");
+
+            entity.HasOne(d => d.Servicio).WithMany(p => p.DetalleCita)
+                .HasForeignKey(d => d.ServicioId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__detalle_c__servi__5FB337D6");
         });
 
         modelBuilder.Entity<Paciente>(entity =>
         {
-            entity.HasKey(e => e.Run).HasName("PK__paciente__C2B74E6DB076CA71");
+            entity.HasKey(e => e.Run).HasName("PK__paciente__C2B74E6D3858E69C");
 
             entity.ToTable("pacientes");
 
@@ -167,7 +150,7 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Pago>(entity =>
         {
-            entity.HasKey(e => e.PagoId).HasName("PK__pagos__FFF0A58E79C82007");
+            entity.HasKey(e => e.PagoId).HasName("PK__pagos__FFF0A58EF780251A");
 
             entity.ToTable("pagos");
 
@@ -189,16 +172,16 @@ public partial class ClinicaDentalDbContext : DbContext
             entity.HasOne(d => d.Cita).WithMany(p => p.Pagos)
                 .HasForeignKey(d => d.CitaId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__pagos__cita_id__693CA210");
+                .HasConstraintName("FK__pagos__cita_id__5BE2A6F2");
         });
 
         modelBuilder.Entity<Servicio>(entity =>
         {
-            entity.HasKey(e => e.ServicioId).HasName("PK__servicio__AF3A090C98FF4FD3");
+            entity.HasKey(e => e.ServicioId).HasName("PK__servicio__AF3A090C3B2BCE68");
 
             entity.ToTable("servicios");
 
-            entity.HasIndex(e => e.Nombre, "UQ__servicio__72AFBCC6DE372F8B").IsUnique();
+            entity.HasIndex(e => e.Nombre, "UQ__servicio__72AFBCC6C207DD2C").IsUnique();
 
             entity.Property(e => e.ServicioId).HasColumnName("servicio_id");
             entity.Property(e => e.Costo).HasColumnName("costo");

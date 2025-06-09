@@ -13,5 +13,5 @@ public partial class Servicio
 
     public int Duracion { get; set; }
 
-    public virtual ICollection<CitaServicio> CitaServicios { get; set; } = new List<CitaServicio>();
+    public virtual ICollection<DetalleCitum> DetalleCita { get; set; } = new List<DetalleCitum>();
 }

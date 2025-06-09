@@ -27,25 +27,24 @@ CREATE TABLE servicios (
     duracion INT NOT NULL
 );
 
-CREATE TABLE estado_cita (
-    estado_id INT PRIMARY KEY IDENTITY(1,1),
-    nombre VARCHAR(50) NOT NULL -- Programada | Confirmada | Completada | Cancelada | Reprogramada.
-);
+-- CREATE TABLE estado_cita (
+--     estado_id INT PRIMARY KEY IDENTITY(1,1),
+--     nombre VARCHAR(50) NOT NULL -- Programada | Confirmada | Completada | Cancelada | Reprogramada.
+-- );
 
 CREATE TABLE citas (
     cita_id INT PRIMARY KEY IDENTITY(1,1),
     run_paciente VARCHAR(15) NOT NULL,
     dentista_id INT NOT NULL,
-    estado_id INT NOT NULL,
+    estado VARCHAR(50) NOT NULL,
     fecha DATE NOT NULL,
     hora TIME NOT NULL,
     FOREIGN KEY (run_paciente) REFERENCES pacientes (run),
     FOREIGN KEY (dentista_id) REFERENCES dentistas (dentista_id),
-    FOREIGN KEY (estado_id) REFERENCES estado_cita (estado_id)
 );
 
-CREATE TABLE cita_servicio (
-    cita_servicio_id INT PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE detalle_cita ( -- detalle cita?
+    detalle_cita_id INT PRIMARY KEY IDENTITY(1,1),
     cita_id INT NOT NULL,
     servicio_id INT NOT NULL,
     FOREIGN KEY (cita_id) REFERENCES citas (cita_id),
