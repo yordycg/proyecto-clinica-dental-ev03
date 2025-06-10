@@ -25,7 +25,7 @@ public partial class PacientesForm : Form
         txtRun.Text = String.Empty;
         txtNombres.Text = "";
         txtApellidos.Text = "";
-        cbSexo.Text = "";
+        cbSexo.SelectedIndex = -1;
         txtTelefono.Text = "";
         txtCorreo.Text = "";
         idPaciente = null;
@@ -54,7 +54,7 @@ public partial class PacientesForm : Form
         }
         if (cbSexo.Text.Trim() == "")
         {
-            err += "Debes seleccionar el 'SEXO' del paciente.\n";
+            err += "Debes seleccionar una opcion.\n";
         }
         if (txtTelefono.Text.Trim() == "")
         {
@@ -89,6 +89,8 @@ public partial class PacientesForm : Form
                 newPaciente.Correo = txtCorreo.Text.Trim();
 
                 db.Pacientes.Add(newPaciente);
+
+                MessageBox.Show("Paciente registrado con exito!");
             }
             else
             {
@@ -102,10 +104,11 @@ public partial class PacientesForm : Form
                     foundPaciente.Sexo = cbSexo.Text.Trim()[0].ToString();
                     foundPaciente.Telefono = txtTelefono.Text.Trim();
                     foundPaciente.Correo = txtCorreo.Text.Trim();
+
+                    MessageBox.Show("Paciente modificaco con exito!");
                 }
             }
             db.SaveChanges();
-            MessageBox.Show("Paciente registrado con exito!");
             CleanForm();
             ShowPacientes();
         }
