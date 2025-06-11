@@ -73,14 +73,9 @@ namespace clinica_dental_ev03
 
                 int m = 0, s = 1;
                 for (; rutAux != 0; rutAux /= 10)
-                {
                     s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
-                }
-
                 if (dv == (char)(s != 0 ? s + 47 : 75))
-                {
                     validacion = true;
-                }
             }
             catch (Exception)
             {
