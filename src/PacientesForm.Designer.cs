@@ -52,109 +52,115 @@ partial class PacientesForm
         // label1
         // 
         label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        label1.Location = new Point(400, 20);
+        label1.Location = new Point(457, 27);
         label1.Name = "label1";
-        label1.Size = new Size(241, 45);
+        label1.Size = new Size(275, 60);
         label1.TabIndex = 0;
         label1.Text = "Formulario Pacientes";
         // 
         // label2
         // 
-        label2.Location = new Point(50, 100);
+        label2.Location = new Point(57, 133);
         label2.Name = "label2";
-        label2.Size = new Size(100, 23);
+        label2.Size = new Size(114, 31);
         label2.TabIndex = 1;
         label2.Text = "Run:";
         label2.TextAlign = ContentAlignment.MiddleRight;
         // 
         // txtRun
         // 
-        txtRun.Location = new Point(160, 100);
+        txtRun.Location = new Point(183, 133);
+        txtRun.Margin = new Padding(3, 4, 3, 4);
         txtRun.Name = "txtRun";
-        txtRun.Size = new Size(150, 23);
+        txtRun.Size = new Size(171, 27);
         txtRun.TabIndex = 2;
         txtRun.TextChanged += txtRun_TextChanged;
         txtRun.Leave += txtRun_Leave;
         // 
         // txtNombres
         // 
-        txtNombres.Location = new Point(160, 130);
+        txtNombres.Location = new Point(183, 173);
+        txtNombres.Margin = new Padding(3, 4, 3, 4);
         txtNombres.Name = "txtNombres";
-        txtNombres.Size = new Size(150, 23);
+        txtNombres.Size = new Size(171, 27);
         txtNombres.TabIndex = 4;
         // 
         // label3
         // 
-        label3.Location = new Point(50, 130);
+        label3.Location = new Point(57, 173);
         label3.Name = "label3";
-        label3.Size = new Size(100, 23);
+        label3.Size = new Size(114, 31);
         label3.TabIndex = 3;
         label3.Text = "Nombre:";
         label3.TextAlign = ContentAlignment.MiddleRight;
         // 
         // txtApellidos
         // 
-        txtApellidos.Location = new Point(160, 160);
+        txtApellidos.Location = new Point(183, 213);
+        txtApellidos.Margin = new Padding(3, 4, 3, 4);
         txtApellidos.Name = "txtApellidos";
-        txtApellidos.Size = new Size(150, 23);
+        txtApellidos.Size = new Size(171, 27);
         txtApellidos.TabIndex = 6;
         // 
         // label4
         // 
-        label4.Location = new Point(50, 160);
+        label4.Location = new Point(57, 213);
         label4.Name = "label4";
-        label4.Size = new Size(100, 23);
+        label4.Size = new Size(114, 31);
         label4.TabIndex = 5;
         label4.Text = "Apellidos:";
         label4.TextAlign = ContentAlignment.MiddleRight;
         // 
         // label5
         // 
-        label5.Location = new Point(50, 190);
+        label5.Location = new Point(57, 253);
         label5.Name = "label5";
-        label5.Size = new Size(100, 23);
+        label5.Size = new Size(114, 31);
         label5.TabIndex = 7;
         label5.Text = "Sexo:";
         label5.TextAlign = ContentAlignment.MiddleRight;
         // 
         // txtTelefono
         // 
-        txtTelefono.Location = new Point(160, 220);
+        txtTelefono.Location = new Point(183, 293);
+        txtTelefono.Margin = new Padding(3, 4, 3, 4);
         txtTelefono.Name = "txtTelefono";
-        txtTelefono.Size = new Size(150, 23);
+        txtTelefono.Size = new Size(171, 27);
         txtTelefono.TabIndex = 10;
         txtTelefono.KeyPress += txtTelefono_KeyPress;
         // 
         // label6
         // 
-        label6.Location = new Point(50, 220);
+        label6.Location = new Point(57, 293);
         label6.Name = "label6";
-        label6.Size = new Size(100, 23);
+        label6.Size = new Size(114, 31);
         label6.TabIndex = 9;
         label6.Text = "Telefono:";
         label6.TextAlign = ContentAlignment.MiddleRight;
         // 
         // txtCorreo
         // 
-        txtCorreo.Location = new Point(160, 250);
+        txtCorreo.Location = new Point(183, 333);
+        txtCorreo.Margin = new Padding(3, 4, 3, 4);
         txtCorreo.Name = "txtCorreo";
-        txtCorreo.Size = new Size(150, 23);
+        txtCorreo.Size = new Size(171, 27);
         txtCorreo.TabIndex = 12;
         // 
         // label7
         // 
-        label7.Location = new Point(50, 250);
+        label7.Location = new Point(57, 333);
         label7.Name = "label7";
-        label7.Size = new Size(100, 23);
+        label7.Size = new Size(114, 31);
         label7.TabIndex = 11;
         label7.Text = "Correo:";
         label7.TextAlign = ContentAlignment.MiddleRight;
         // 
         // btnLimpiar
         // 
-        btnLimpiar.Location = new Point(90, 300);
+        btnLimpiar.Location = new Point(103, 400);
+        btnLimpiar.Margin = new Padding(3, 4, 3, 4);
         btnLimpiar.Name = "btnLimpiar";
-        btnLimpiar.Size = new Size(75, 23);
+        btnLimpiar.Size = new Size(86, 31);
         btnLimpiar.TabIndex = 13;
         btnLimpiar.Text = "Limpiar";
         btnLimpiar.UseVisualStyleBackColor = true;
@@ -162,9 +168,10 @@ partial class PacientesForm
         // 
         // btnGuardar
         // 
-        btnGuardar.Location = new Point(235, 300);
+        btnGuardar.Location = new Point(269, 400);
+        btnGuardar.Margin = new Padding(3, 4, 3, 4);
         btnGuardar.Name = "btnGuardar";
-        btnGuardar.Size = new Size(75, 23);
+        btnGuardar.Size = new Size(86, 31);
         btnGuardar.TabIndex = 14;
         btnGuardar.Text = "Guardar";
         btnGuardar.UseVisualStyleBackColor = true;
@@ -172,9 +179,10 @@ partial class PacientesForm
         // 
         // btnEliminar
         // 
-        btnEliminar.Location = new Point(160, 330);
+        btnEliminar.Location = new Point(183, 440);
+        btnEliminar.Margin = new Padding(3, 4, 3, 4);
         btnEliminar.Name = "btnEliminar";
-        btnEliminar.Size = new Size(75, 23);
+        btnEliminar.Size = new Size(86, 31);
         btnEliminar.TabIndex = 15;
         btnEliminar.Text = "Eliminar";
         btnEliminar.UseVisualStyleBackColor = true;
@@ -183,9 +191,11 @@ partial class PacientesForm
         // dgvPacientes
         // 
         dgvPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvPacientes.Location = new Point(370, 100);
+        dgvPacientes.Location = new Point(423, 133);
+        dgvPacientes.Margin = new Padding(3, 4, 3, 4);
         dgvPacientes.Name = "dgvPacientes";
-        dgvPacientes.Size = new Size(560, 253);
+        dgvPacientes.RowHeadersWidth = 51;
+        dgvPacientes.Size = new Size(640, 337);
         dgvPacientes.TabIndex = 16;
         dgvPacientes.Text = "dataGridView1";
         dgvPacientes.MouseClick += dgvPacientes_MouseClick;
@@ -194,16 +204,17 @@ partial class PacientesForm
         // 
         cbSexo.FormattingEnabled = true;
         cbSexo.Items.AddRange(new object[] { "Femenino", "Masculino" });
-        cbSexo.Location = new Point(160, 190);
+        cbSexo.Location = new Point(183, 253);
+        cbSexo.Margin = new Padding(3, 4, 3, 4);
         cbSexo.Name = "cbSexo";
-        cbSexo.Size = new Size(150, 23);
+        cbSexo.Size = new Size(171, 28);
         cbSexo.TabIndex = 17;
         // 
         // PacientesForm
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(984, 411);
+        ClientSize = new Size(1125, 548);
         Controls.Add(cbSexo);
         Controls.Add(dgvPacientes);
         Controls.Add(btnEliminar);
@@ -221,6 +232,7 @@ partial class PacientesForm
         Controls.Add(txtRun);
         Controls.Add(label2);
         Controls.Add(label1);
+        Margin = new Padding(3, 4, 3, 4);
         Name = "PacientesForm";
         Text = "Form1";
         ((System.ComponentModel.ISupportInitialize)dgvPacientes).EndInit();

@@ -26,6 +26,7 @@ public partial class PacientesForm : Form
         txtNombres.Text = "";
         txtApellidos.Text = "";
         cbSexo.SelectedIndex = -1;
+        cbSexo.Text = "";
         txtTelefono.Text = "";
         txtCorreo.Text = "";
         idPaciente = null;
