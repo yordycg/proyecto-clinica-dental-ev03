@@ -139,11 +139,7 @@ namespace clinica_dental_ev03
             {
                 // FirstOrDefault(): retorna la primera coincidencia que encuentre.
                 var foundPaciente = db.Pacientes.FirstOrDefault(p => p.Run == txtRun.Text);
-                if (foundPaciente != null)
-                {
-                    MessageBox.Show($"Paciente de rut: {txtRun.Text} se encuentra registrado!");
-                }
-                else
+                if (foundPaciente == null)
                 {
                     MessageBox.Show($"El RUN no se encuentra registrado!");
                     txtRun.Text = "";
