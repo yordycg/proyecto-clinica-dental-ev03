@@ -9,7 +9,7 @@ public partial class Cita
 
     public string RunPaciente { get; set; } = null!;
 
-    public int DentistaId { get; set; }
+    public string DentistaId { get; set; } = null!;
 
     public string Estado { get; set; } = null!;
 
@@ -17,7 +17,11 @@ public partial class Cita
 
     public TimeOnly Hora { get; set; }
 
-    public virtual Dentista Dentista { get; set; } = null!;
+    public string CreadoPor { get; set; } = null!;
+
+    public virtual Empleado CreadoPorNavigation { get; set; } = null!;
+
+    public virtual Empleado Dentista { get; set; } = null!;
 
     public virtual ICollection<DetalleCitum> DetalleCita { get; set; } = new List<DetalleCitum>();
 
