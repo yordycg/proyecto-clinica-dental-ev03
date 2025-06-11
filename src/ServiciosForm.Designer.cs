@@ -45,18 +45,21 @@
             // dgvServicios
             // 
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvServicios.Location = new Point(350, 100);
+            dgvServicios.Location = new Point(400, 133);
+            dgvServicios.Margin = new Padding(3, 4, 3, 4);
             dgvServicios.Name = "dgvServicios";
-            dgvServicios.Size = new Size(560, 253);
+            dgvServicios.RowHeadersWidth = 51;
+            dgvServicios.Size = new Size(640, 337);
             dgvServicios.TabIndex = 33;
             dgvServicios.Text = "dataGridView1";
             dgvServicios.MouseClick += dgvServicios_MouseClick;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(79, 279);
+            btnEliminar.Location = new Point(63, 342);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(86, 31);
             btnEliminar.TabIndex = 32;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -64,9 +67,10 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(241, 279);
+            btnGuardar.Location = new Point(248, 342);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(86, 31);
             btnGuardar.TabIndex = 31;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -74,9 +78,10 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(160, 279);
+            btnLimpiar.Location = new Point(156, 342);
+            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.Size = new Size(86, 31);
             btnLimpiar.TabIndex = 30;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
@@ -84,42 +89,44 @@
             // 
             // label6
             // 
-            label6.Location = new Point(54, 160);
+            label6.Location = new Point(48, 273);
             label6.Name = "label6";
-            label6.Size = new Size(100, 23);
+            label6.Size = new Size(114, 31);
             label6.TabIndex = 26;
             label6.Text = "Duracion (min):";
             label6.TextAlign = ContentAlignment.MiddleRight;
             // 
             // txtCosto
             // 
-            txtCosto.Location = new Point(164, 130);
+            txtCosto.Location = new Point(173, 233);
+            txtCosto.Margin = new Padding(3, 4, 3, 4);
             txtCosto.Name = "txtCosto";
-            txtCosto.Size = new Size(150, 23);
+            txtCosto.Size = new Size(171, 27);
             txtCosto.TabIndex = 24;
             txtCosto.KeyPress += txtCosto_KeyPress;
             // 
             // label4
             // 
-            label4.Location = new Point(54, 130);
+            label4.Location = new Point(48, 233);
             label4.Name = "label4";
-            label4.Size = new Size(100, 23);
+            label4.Size = new Size(114, 31);
             label4.TabIndex = 23;
             label4.Text = "Costo:";
             label4.TextAlign = ContentAlignment.MiddleRight;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(164, 100);
+            txtNombre.Location = new Point(173, 193);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(150, 23);
+            txtNombre.Size = new Size(171, 27);
             txtNombre.TabIndex = 22;
             // 
             // label3
             // 
-            label3.Location = new Point(54, 100);
+            label3.Location = new Point(48, 193);
             label3.Name = "label3";
-            label3.Size = new Size(100, 23);
+            label3.Size = new Size(114, 31);
             label3.TabIndex = 21;
             label3.Text = "Nombre:";
             label3.TextAlign = ContentAlignment.MiddleRight;
@@ -127,24 +134,25 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(400, 20);
+            label1.Location = new Point(457, 27);
             label1.Name = "label1";
-            label1.Size = new Size(241, 45);
+            label1.Size = new Size(301, 60);
             label1.TabIndex = 18;
             label1.Text = "Formulario Servicios";
             // 
             // txtDuracion
             // 
-            txtDuracion.Location = new Point(164, 161);
+            txtDuracion.Location = new Point(173, 275);
+            txtDuracion.Margin = new Padding(3, 4, 3, 4);
             txtDuracion.Name = "txtDuracion";
-            txtDuracion.Size = new Size(150, 23);
+            txtDuracion.Size = new Size(171, 27);
             txtDuracion.TabIndex = 34;
             // 
             // ServiciosForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 411);
+            ClientSize = new Size(1125, 548);
             Controls.Add(txtDuracion);
             Controls.Add(dgvServicios);
             Controls.Add(btnEliminar);
@@ -156,6 +164,7 @@
             Controls.Add(txtNombre);
             Controls.Add(label3);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ServiciosForm";
             Text = "ServiciosForm";
             ((System.ComponentModel.ISupportInitialize)dgvServicios).EndInit();
