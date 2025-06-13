@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace clinica_dental_ev03.Models;
+namespace clinica_dental_ev03.ModelsTemp;
 
 public partial class ClinicaDentalDbContext : DbContext
 {
@@ -33,13 +33,13 @@ public partial class ClinicaDentalDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=localhost;database=clinicaDentalDB;trusted_connection=True;trustservercertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=clinicaDentalDB;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cita>(entity =>
         {
-            entity.HasKey(e => e.CitaId).HasName("PK__citas__5AC1B05BFB3BBFFC");
+            entity.HasKey(e => e.CitaId).HasName("PK__citas__5AC1B05BCCD8C50E");
 
             entity.ToTable("citas");
 
@@ -81,7 +81,7 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<DetalleCitum>(entity =>
         {
-            entity.HasKey(e => e.DetalleCitaId).HasName("PK__detalle___250F2C2F498979D9");
+            entity.HasKey(e => e.DetalleCitaId).HasName("PK__detalle___250F2C2F6FD53828");
 
             entity.ToTable("detalle_cita");
 
@@ -102,7 +102,7 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Empleado>(entity =>
         {
-            entity.HasKey(e => e.Run).HasName("PK__empleado__C2B74E6DA38DEE70");
+            entity.HasKey(e => e.Run).HasName("PK__empleado__C2B74E6D6AD00120");
 
             entity.ToTable("empleados");
 
@@ -144,7 +144,7 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Paciente>(entity =>
         {
-            entity.HasKey(e => e.Run).HasName("PK__paciente__C2B74E6D96B40FC7");
+            entity.HasKey(e => e.Run).HasName("PK__paciente__C2B74E6D6796BA3F");
 
             entity.ToTable("pacientes");
 
@@ -180,7 +180,7 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Pago>(entity =>
         {
-            entity.HasKey(e => e.PagoId).HasName("PK__pagos__FFF0A58E0206043E");
+            entity.HasKey(e => e.PagoId).HasName("PK__pagos__FFF0A58E3E77E1DC");
 
             entity.ToTable("pagos");
 
@@ -207,11 +207,11 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Servicio>(entity =>
         {
-            entity.HasKey(e => e.ServicioId).HasName("PK__servicio__AF3A090CED89F0F4");
+            entity.HasKey(e => e.ServicioId).HasName("PK__servicio__AF3A090C410E6D0F");
 
             entity.ToTable("servicios");
 
-            entity.HasIndex(e => e.Nombre, "UQ__servicio__72AFBCC630D913D9").IsUnique();
+            entity.HasIndex(e => e.Nombre, "UQ__servicio__72AFBCC6BC4785E4").IsUnique();
 
             entity.Property(e => e.ServicioId).HasColumnName("servicio_id");
             entity.Property(e => e.Costo).HasColumnName("costo");
@@ -224,11 +224,11 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<TiposEmpleado>(entity =>
         {
-            entity.HasKey(e => e.TipoId).HasName("PK__tipos_em__6EA5A01B790E2886");
+            entity.HasKey(e => e.TipoId).HasName("PK__tipos_em__6EA5A01B023A666A");
 
             entity.ToTable("tipos_empleados");
 
-            entity.HasIndex(e => e.Nombre, "UQ__tipos_em__72AFBCC616D433F8").IsUnique();
+            entity.HasIndex(e => e.Nombre, "UQ__tipos_em__72AFBCC61593AB20").IsUnique();
 
             entity.Property(e => e.TipoId).HasColumnName("tipo_id");
             entity.Property(e => e.Nombre)
@@ -239,11 +239,11 @@ public partial class ClinicaDentalDbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UsuarioId).HasName("PK__usuarios__2ED7D2AFECE22AE2");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__usuarios__2ED7D2AF55E6CAEF");
 
             entity.ToTable("usuarios");
 
-            entity.HasIndex(e => e.Nombre, "UQ__usuarios__72AFBCC607FC227C").IsUnique();
+            entity.HasIndex(e => e.Nombre, "UQ__usuarios__72AFBCC6A69422A1").IsUnique();
 
             entity.Property(e => e.UsuarioId).HasColumnName("usuario_id");
             entity.Property(e => e.EmpleadoRun)

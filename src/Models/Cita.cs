@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace clinica_dental_ev03.Models;
+namespace clinica_dental_ev03.ModelsTemp;
 
 public partial class Cita
 {
