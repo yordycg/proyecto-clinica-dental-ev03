@@ -33,7 +33,6 @@ namespace clinica_dental_ev03
             cbTipoEmpleado.SelectedIndex = -1;
         }
 
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             CleanForm();
@@ -182,7 +181,6 @@ namespace clinica_dental_ev03
             txtNombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
             txtApellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
             cbTipoEmpleado.SelectedValue = int.Parse(dgvEmpleados.CurrentRow.Cells[3].Value.ToString());
-            //cbSexo.SelectedValue = int.Parse(dgvEmpleados.CurrentRow.Cells[4].Value.ToString());
             cbSexo.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
             txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
             txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
@@ -192,14 +190,34 @@ namespace clinica_dental_ev03
         {
             if (runEmpleado != null)
             {
-                var resp = MessageBox.Show($"Desea eliminar el dentista de nombre: {txtNombre.Text}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var respEmpleado = MessageBox.Show($"Desea eliminar el dentista de nombre: {txtNombre.Text}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (resp == DialogResult.Yes)
+                if (respEmpleado == DialogResult.Yes)
                 {
                     var foundEmpleado = db.Empleados.Find(runEmpleado);
 
                     if (foundEmpleado != null)
                     {
+                        // Verificar existencias de CITAS asociadas al registro.
+                        var citasAsociadas = db.Citas.Any(c => c.DentistaId == runEmpleado);
+
+                        if (citasAsociadas)
+                        {
+                            var respCitas = MessageBox.Show("El empleado tiene citas asociadas. " +
+                               "¿Desea eliminar también las citas?",
+                               "Citas asociadas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (respCitas == DialogResult.Yes)
+                            {
+                                var citas = db.Citas.Where(c => c.DentistaId == runEmpleado);
+                                db.Citas.RemoveRange(citas);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+
                         db.Empleados.Remove(foundEmpleado);
                         db.SaveChanges();
                         CleanForm();
@@ -208,6 +226,5 @@ namespace clinica_dental_ev03
                 }
             }
         }
-
     }
 }
