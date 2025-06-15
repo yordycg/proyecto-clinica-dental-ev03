@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace clinica_dental_ev03.ModelsTemp;
+namespace clinica_dental_ev03.Models;
 
 public partial class ClinicaDentalDbContext : DbContext
 {
@@ -126,9 +126,8 @@ public partial class ClinicaDentalDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
             entity.Property(e => e.Sexo)
-                .HasMaxLength(1)
+                .HasMaxLength(50)
                 .IsUnicode(false)
-                .IsFixedLength()
                 .HasColumnName("sexo");
             entity.Property(e => e.Telefono)
                 .HasMaxLength(15)
@@ -168,9 +167,8 @@ public partial class ClinicaDentalDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
             entity.Property(e => e.Sexo)
-                .HasMaxLength(1)
+                .HasMaxLength(50)
                 .IsUnicode(false)
-                .IsFixedLength()
                 .HasColumnName("sexo");
             entity.Property(e => e.Telefono)
                 .HasMaxLength(15)

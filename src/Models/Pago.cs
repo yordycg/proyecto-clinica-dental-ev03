@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace clinica_dental_ev03.ModelsTemp;
+namespace clinica_dental_ev03.Models;
 
 public partial class Pago
 {
