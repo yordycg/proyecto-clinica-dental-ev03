@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clinica_dental_ev03.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,42 @@ namespace clinica_dental_ev03
 {
     public partial class MenuForm : Form
     {
+        ClinicaDentalDbContext db = new();
+        string? tipoEmpleadoActual = null;
         Form formActivo;
         Button btnActivo;
 
         public MenuForm()
         {
             InitializeComponent();
+            LoadDataEmpleado();
+        }
+
+        private void LoadDataEmpleado()
+        {
+            Empleado? empleadoActual = db.Empleados
+                .Include(e => e.TipoEmpleado)
+                .FirstOrDefault(e => e.Run == LoginForm.empleadoRun);
+
+            if (empleadoActual != null)
+            {
+                tipoEmpleadoActual = empleadoActual.TipoEmpleado.Nombre;
+                lblTipoEmpleado.Text = tipoEmpleadoActual;
+
+                switch (tipoEmpleadoActual.ToLower())
+                {
+                    // "admin": puede ver todo.
+                    case "auxiliar":
+                    case "dentista":
+                    btnFormPagos.Visible = false;
+                    btnFormEmpleados.Visible = false;
+                    break;
+                    case "secretari@":
+                    btnFormEmpleados.Visible = false;
+                    btnFormUsuarios.Visible = false;
+                    break;
+                }
+            }
         }
 
         private void OpenForm(Form formHijo, object sender, string nombre)
@@ -49,8 +81,9 @@ namespace clinica_dental_ev03
                 btnActivo = (Button)sender;
             }
 
+            // 52, 143, 108
             btnActivo.BackColor = Color.White;
-            btnActivo.ForeColor = Color.MidnightBlue;
+            btnActivo.ForeColor = Color.FromArgb(52, 143, 108);
         }
 
         private void botonDesactivado()
@@ -59,12 +92,11 @@ namespace clinica_dental_ev03
             {
                 if (btn.GetType() == typeof(Button))
                 {
-                    btn.BackColor = Color.MidnightBlue;
+                    btn.BackColor = Color.FromArgb(52, 143, 108);
                     btn.ForeColor = Color.White;
                 }
             }
         }
-
 
         private void btnFormEmpleados_Click(object sender, EventArgs e)
         {
@@ -88,15 +120,22 @@ namespace clinica_dental_ev03
 
         private void btnFormPagos_Click(object sender, EventArgs e)
         {
-            // TODO: implementar formulario!
-            MessageBox.Show("Falta IMPLEMENTAR");
+            OpenForm(new PagosForm(), sender, "Gestion de Pagos");
         }
 
         private void btnFormCitas_Click(object sender, EventArgs e)
         {
-            // TODO: implementar formulario, esta a media!
-            MessageBox.Show("Falta TERMINAR");
+            OpenForm(new CitaForm(), sender, "Gestion de Citas");
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            var resp = MessageBox.Show("Desea salir del sistema?", "Confirmar Salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resp == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
