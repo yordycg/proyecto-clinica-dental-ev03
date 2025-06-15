@@ -13,6 +13,17 @@ public partial class PacientesForm : Form
     {
         InitializeComponent();
         ShowPacientes();
+        LoadSexo();
+    }
+
+    private void LoadSexo()
+    {
+        cbSexo.Items.Clear();
+        cbSexo.Items.Add("Femenino");
+        cbSexo.Items.Add("Masculino");
+        cbSexo.Items.Add("Otro");
+        cbSexo.Items.Add("No Responde");
+        cbSexo.SelectedIndex = -1; // default.
     }
 
     private void btnLimpiar_Click(object sender, EventArgs e)
@@ -34,11 +45,6 @@ public partial class PacientesForm : Form
 
     private void btnGuardar_Click(object sender, EventArgs e)
     {
-        /**
-         * TODO: tanto el campo 'telefono' como el 'correo' pueden ser nulos.
-         * dejarlo asi? o hacerlos campos obligatorios?
-         */
-
         string? err = null;
 
         if (txtRun.Text.Trim() == "")
@@ -84,8 +90,7 @@ public partial class PacientesForm : Form
                 newPaciente.Run = txtRun.Text.Trim();
                 newPaciente.Nombre = txtNombres.Text.Trim();
                 newPaciente.Apellido = txtApellidos.Text.Trim();
-                // Retornar la inicial de la opcion seleccionada.
-                newPaciente.Sexo = cbSexo.Text.Trim()[0].ToString();
+                newPaciente.Sexo = cbSexo.Text.Trim();
                 newPaciente.Telefono = txtTelefono.Text.Trim();
                 newPaciente.Correo = txtCorreo.Text.Trim();
 
@@ -102,7 +107,7 @@ public partial class PacientesForm : Form
                 {
                     foundPaciente.Nombre = txtNombres.Text.Trim();
                     foundPaciente.Apellido = txtApellidos.Text.Trim();
-                    foundPaciente.Sexo = cbSexo.Text.Trim()[0].ToString();
+                    foundPaciente.Sexo = cbSexo.Text.Trim();
                     foundPaciente.Telefono = txtTelefono.Text.Trim();
                     foundPaciente.Correo = txtCorreo.Text.Trim();
 
@@ -164,9 +169,7 @@ public partial class PacientesForm : Form
         idPaciente = dgvPacientes.CurrentRow.Cells[0].Value.ToString();
         txtNombres.Text = dgvPacientes.CurrentRow.Cells[1].Value.ToString();
         txtApellidos.Text = dgvPacientes.CurrentRow.Cells[2].Value.ToString();
-        // TODO: retorna la inicial y luego pasa a el nombre completo
-        // por ejemplo: 'M' -> Masculino...
-        cbSexo.SelectedText = dgvPacientes.CurrentRow.Cells[3].Value.ToString();
+        cbSexo.Text = dgvPacientes.CurrentRow.Cells[3].Value.ToString();
         txtTelefono.Text = dgvPacientes.CurrentRow.Cells[4].Value.ToString();
         txtCorreo.Text = dgvPacientes.CurrentRow.Cells[5].Value.ToString();
     }
@@ -179,11 +182,14 @@ public partial class PacientesForm : Form
 
             if (resp == DialogResult.Yes)
             {
-                var foundPaciente = db.Pacientes.Find(idPaciente);
-                db.Pacientes.Remove(foundPaciente);
-                db.SaveChanges();
-                CleanForm();
-                ShowPacientes();
+                Paciente foundPaciente = db.Pacientes.Find(idPaciente);
+                if (foundPaciente != null)
+                {
+                    db.Pacientes.Remove(foundPaciente);
+                    db.SaveChanges();
+                    CleanForm();
+                    ShowPacientes();
+                }
             }
         }
     }
