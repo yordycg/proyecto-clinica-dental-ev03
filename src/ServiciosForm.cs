@@ -77,7 +77,7 @@ namespace clinica_dental_ev03
                     if (foundServicio != null)
                     {
                         foundServicio.Nombre = txtNombre.Text;
-                        foundServicio.Costo = int.Parse(txtNombre.Text);
+                        foundServicio.Costo = int.Parse(txtCosto.Text);
                         foundServicio.Duracion = int.Parse(txtDuracion.Text);
 
                         MessageBox.Show("Servicio modificado con exito!");
