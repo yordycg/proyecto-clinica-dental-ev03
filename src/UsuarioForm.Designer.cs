@@ -36,163 +36,190 @@
             label4 = new Label();
             txtNombreUsuario = new TextBox();
             label3 = new Label();
-            label1 = new Label();
-            txtRun = new TextBox();
             label2 = new Label();
             txtPassRep = new TextBox();
             label5 = new Label();
+            pnForm = new Panel();
+            pnDGV = new Panel();
+            cbRun = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            pnForm.SuspendLayout();
+            pnDGV.SuspendLayout();
             SuspendLayout();
             // 
             // dgvUsuarios
             // 
+            dgvUsuarios.BackgroundColor = Color.White;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(417, 85);
-            dgvUsuarios.Margin = new Padding(3, 4, 3, 4);
+            dgvUsuarios.Location = new Point(0, 50);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new Size(729, 337);
+            dgvUsuarios.Size = new Size(600, 450);
             dgvUsuarios.TabIndex = 54;
             dgvUsuarios.Text = "dataGridView1";
             dgvUsuarios.MouseClick += dgvUsuarios_MouseClick;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(150, 348);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.BackColor = Color.IndianRed;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Nirmala UI", 9F);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(137, 342);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(86, 31);
+            btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 53;
             btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(236, 308);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
+            btnGuardar.BackColor = Color.FromArgb(52, 143, 108);
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Nirmala UI", 9F);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.Location = new Point(228, 342);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(86, 31);
+            btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 52;
             btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(70, 308);
-            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
+            btnLimpiar.BackColor = Color.Gainsboro;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Nirmala UI", 9F);
+            btnLimpiar.Location = new Point(46, 342);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(86, 31);
+            btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 51;
             btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(168, 207);
-            txtPass.Margin = new Padding(3, 4, 3, 4);
+            txtPass.Location = new Point(161, 243);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
-            txtPass.Size = new Size(171, 27);
+            txtPass.Size = new Size(150, 23);
             txtPass.TabIndex = 46;
             // 
             // label4
             // 
-            label4.Location = new Point(42, 207);
+            label4.AutoSize = true;
+            label4.Location = new Point(41, 246);
             label4.Name = "label4";
-            label4.Size = new Size(114, 31);
+            label4.Size = new Size(67, 15);
             label4.TabIndex = 45;
-            label4.Text = "Contraseña:";
-            label4.TextAlign = ContentAlignment.MiddleRight;
+            label4.Text = "Contraseña";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(168, 167);
-            txtNombreUsuario.Margin = new Padding(3, 4, 3, 4);
+            txtNombreUsuario.Location = new Point(161, 204);
             txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(171, 27);
+            txtNombreUsuario.Size = new Size(150, 23);
             txtNombreUsuario.TabIndex = 44;
             // 
             // label3
             // 
-            label3.Location = new Point(25, 165);
+            label3.AutoSize = true;
+            label3.Location = new Point(41, 207);
             label3.Name = "label3";
-            label3.Size = new Size(131, 31);
+            label3.Size = new Size(94, 15);
             label3.TabIndex = 43;
-            label3.Text = "Nombre Usuario:";
-            label3.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(417, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(312, 60);
-            label1.TabIndex = 42;
-            label1.Text = "Nuevo Empleado";
-            // 
-            // txtRun
-            // 
-            txtRun.Location = new Point(168, 127);
-            txtRun.Margin = new Padding(3, 4, 3, 4);
-            txtRun.Name = "txtRun";
-            txtRun.Size = new Size(171, 27);
-            txtRun.TabIndex = 56;
-            txtRun.TextChanged += txtRut_TextChanged;
-            txtRun.Leave += txtRut_Leave;
+            label3.Text = "Nombre Usuario";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            label2.Location = new Point(42, 127);
+            label2.AutoSize = true;
+            label2.Location = new Point(41, 171);
             label2.Name = "label2";
-            label2.Size = new Size(114, 31);
+            label2.Size = new Size(84, 15);
             label2.TabIndex = 55;
-            label2.Text = "Run Empleado:";
-            label2.TextAlign = ContentAlignment.MiddleRight;
+            label2.Text = "Run Empleado";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtPassRep
             // 
-            txtPassRep.Location = new Point(168, 252);
-            txtPassRep.Margin = new Padding(3, 4, 3, 4);
+            txtPassRep.Location = new Point(161, 282);
             txtPassRep.Name = "txtPassRep";
             txtPassRep.PasswordChar = '*';
-            txtPassRep.Size = new Size(171, 27);
+            txtPassRep.Size = new Size(150, 23);
             txtPassRep.TabIndex = 58;
             // 
             // label5
             // 
-            label5.Location = new Point(12, 250);
+            label5.AutoSize = true;
+            label5.Location = new Point(41, 285);
             label5.Name = "label5";
-            label5.Size = new Size(144, 31);
+            label5.Size = new Size(107, 15);
             label5.TabIndex = 57;
-            label5.Text = "Repetir Contraseña:";
-            label5.TextAlign = ContentAlignment.MiddleRight;
+            label5.Text = "Repetir Contraseña";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pnForm
+            // 
+            pnForm.Controls.Add(cbRun);
+            pnForm.Controls.Add(txtPassRep);
+            pnForm.Controls.Add(label5);
+            pnForm.Controls.Add(label2);
+            pnForm.Controls.Add(btnEliminar);
+            pnForm.Controls.Add(btnGuardar);
+            pnForm.Controls.Add(btnLimpiar);
+            pnForm.Controls.Add(txtPass);
+            pnForm.Controls.Add(label4);
+            pnForm.Controls.Add(txtNombreUsuario);
+            pnForm.Controls.Add(label3);
+            pnForm.Dock = DockStyle.Left;
+            pnForm.Location = new Point(0, 0);
+            pnForm.Name = "pnForm";
+            pnForm.Size = new Size(350, 550);
+            pnForm.TabIndex = 59;
+            // 
+            // pnDGV
+            // 
+            pnDGV.Controls.Add(dgvUsuarios);
+            pnDGV.Dock = DockStyle.Right;
+            pnDGV.Location = new Point(350, 0);
+            pnDGV.Name = "pnDGV";
+            pnDGV.Size = new Size(650, 550);
+            pnDGV.TabIndex = 60;
+            // 
+            // cbRun
+            // 
+            cbRun.FormattingEnabled = true;
+            cbRun.Location = new Point(161, 168);
+            cbRun.Name = "cbRun";
+            cbRun.Size = new Size(150, 23);
+            cbRun.TabIndex = 59;
             // 
             // UsuarioForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 453);
-            Controls.Add(txtPassRep);
-            Controls.Add(label5);
-            Controls.Add(txtRun);
-            Controls.Add(label2);
-            Controls.Add(dgvUsuarios);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnLimpiar);
-            Controls.Add(txtPass);
-            Controls.Add(label4);
-            Controls.Add(txtNombreUsuario);
-            Controls.Add(label3);
-            Controls.Add(label1);
+            BackColor = Color.White;
+            ClientSize = new Size(1000, 550);
+            Controls.Add(pnForm);
+            Controls.Add(pnDGV);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UsuarioForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "UsuarioForm";
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            pnForm.ResumeLayout(false);
+            pnForm.PerformLayout();
+            pnDGV.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -204,10 +231,11 @@
         private Label label4;
         private TextBox txtNombreUsuario;
         private Label label3;
-        private Label label1;
-        private TextBox txtRun;
         private Label label2;
         private TextBox txtPassRep;
         private Label label5;
+        private Panel pnForm;
+        private Panel pnDGV;
+        private ComboBox cbRun;
     }
 }

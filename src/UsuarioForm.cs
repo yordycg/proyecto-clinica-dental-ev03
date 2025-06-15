@@ -24,6 +24,17 @@ namespace clinica_dental_ev03
         {
             InitializeComponent();
             ShowUsuarios();
+            LoadEmpleadosSinUsuario();
+        }
+
+        public void LoadEmpleadosSinUsuario()
+        {
+            var empleadosSinUsuario = db.Empleados.Where(e => !db.Usuarios.Any(u => u.EmpleadoRun == e.Run)).ToList();
+
+            cbRun.DataSource = empleadosSinUsuario;
+            cbRun.DisplayMember = "Run";
+            cbRun.ValueMember = "Run";
+            cbRun.SelectedIndex = -1;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -33,7 +44,8 @@ namespace clinica_dental_ev03
 
         private void CleanForm()
         {
-            txtRun.Text = "";
+            cbRun.SelectedIndex = -1;
+            cbRun.Text = "";
             txtNombreUsuario.Text = "";
             txtPass.Text = "";
             txtPassRep.Text = "";
@@ -44,9 +56,9 @@ namespace clinica_dental_ev03
         {
             string? err = null;
 
-            if (txtRun.Text.Trim() == "")
+            if (cbRun.SelectedIndex == -1)
             {
-                err = "Debe ingresar el 'RUT' del empleado.\n";
+                err = "Debe seleccionar el 'RUT' del empleado.\n";
             }
             if (txtNombreUsuario.Text.Trim() == "")
             {
@@ -73,7 +85,7 @@ namespace clinica_dental_ev03
                 if (idUsuario == null)
                 {
                     Usuario newUsuario = new();
-                    newUsuario.EmpleadoRun = txtRun.Text.Trim();
+                    newUsuario.EmpleadoRun = cbRun.SelectedValue.ToString();
                     newUsuario.Nombre = txtNombreUsuario.Text.Trim();
                     newUsuario.Password = txtPass.Text.Trim();
 
@@ -86,7 +98,7 @@ namespace clinica_dental_ev03
 
                     if (foundUsuario != null)
                     {
-                        foundUsuario.EmpleadoRun = txtRun.Text.Trim();
+                        foundUsuario.EmpleadoRun = cbRun.SelectedValue.ToString();
                         foundUsuario.Nombre = txtNombreUsuario.Text.Trim();
                         foundUsuario.Password = txtPass.Text.Trim();
 
@@ -99,60 +111,57 @@ namespace clinica_dental_ev03
             }
         }
 
-
-
         private void ShowUsuarios()
         {
             var usuarios = db.Usuarios.ToList();
             dgvUsuarios.DataSource = usuarios;
             dgvUsuarios.Columns[0].Visible = false;
             dgvUsuarios.Columns[5].Visible = false;
-
         }
 
-        private void txtRut_TextChanged(object sender, EventArgs e)
-        {
-            if (txtRun.Text.Trim() != "" && txtRun.Text.Length > 1)
-            {
-                txtRun.Text = h.FormatearRun(txtRun.Text);
-                txtRun.Select(txtRun.Text.Length, 0);
-            }
-        }
+        //private void txtRut_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (txtRun.Text.Trim() != "" && txtRun.Text.Length > 1)
+        //    {
+        //        txtRun.Text = h.FormatearRun(txtRun.Text);
+        //        txtRun.Select(txtRun.Text.Length, 0);
+        //    }
+        //}
 
-        private void txtRut_Leave(object sender, EventArgs e)
-        {
-            if (txtRun.Text.Trim() != "")
-            {
-                if (!h.ValidarRun(txtRun.Text))
-                {
-                    MessageBox.Show("El Run ingresado no es válido");
-                }
-                else
-                {
-                    var foundEmpleado = db.Empleados.FirstOrDefault(x => x.Run == txtRun.Text);
-                    if (foundEmpleado == null)
-                    {
-                        MessageBox.Show("El empleado no se encuentra registrado. Ir al Formulario de Empleado");
-                        txtRun.Text = "";
-                    }
-                }
-            }
-
-        }
+        //private void txtRut_Leave(object sender, EventArgs e)
+        //{
+        //    if (txtRun.Text.Trim() != "")
+        //    {
+        //        if (!h.ValidarRun(txtRun.Text))
+        //        {
+        //            MessageBox.Show("El Run ingresado no es válido");
+        //        }
+        //        else
+        //        {
+        //            var foundEmpleado = db.Empleados.FirstOrDefault(x => x.Run == txtRun.Text);
+        //            if (foundEmpleado == null)
+        //            {
+        //                MessageBox.Show("El empleado no se encuentra registrado. Ir al Formulario de Empleado");
+        //                txtRun.Text = "";
+        //            }
+        //        }
+        //    }
+        //}
 
         private void dgvUsuarios_MouseClick(object sender, MouseEventArgs e)
         {
             idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-            txtRun.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
+            cbRun.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
             txtNombreUsuario.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
             txtPass.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
+            txtPassRep.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idUsuario != null)
             {
-                var resp = MessageBox.Show($"Desea eliminar el usuario de rut: {txtRun.Text}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resp = MessageBox.Show($"Desea eliminar el usuario de rut: {cbRun.Text}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resp == DialogResult.Yes)
                 {
