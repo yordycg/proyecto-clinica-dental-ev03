@@ -57,36 +57,26 @@ namespace clinica_dental_ev03
                 {
                     usuarioId = user.UsuarioId;
                     empleadoRun = user.EmpleadoRun;
-                    MessageBox.Show($"Bienvenido {user.Nombre}", "Ingreso Exitoso!");
+                    //MessageBox.Show($"Bienvenido {user.Nombre}", "Ingreso Exitoso!");
                     MenuForm newMenuForm = new();
-                    newMenuForm.WindowState = FormWindowState.Maximized; // abrir en vista maximizada.
+                    //newMenuForm.WindowState = FormWindowState.Maximized; // abrir en vista maximizada.
                     newMenuForm.Show();
                     CleanForm();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Email y/o Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario y/o Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) // techa 'Enter'.
+            if (e.KeyChar == 13) // tecla 'Enter'.
             {
                 Logg();
             }
-        }
-
-        // NOTE: esta funcion o caracteristica es necesaria? 
-        // No sera mejor entrar al menuform, y de ahi registrar nuevos usuarios?
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            CleanForm();
-            EmpleadosForm newEmpleadoForm = new();
-            newEmpleadoForm.Show();
-            this.Hide();
         }
     }
 }
