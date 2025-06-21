@@ -134,5 +134,17 @@ namespace clinica_dental_ev03
                 }
             }
         }
+
+        private void txtCosto_Leave(object sender, EventArgs e)
+        {
+            if (txtCosto.Text.Trim() != "")
+            {
+                if (int.Parse(txtCosto.Text) <= 0)
+                {
+                    txtCosto.Text = "";
+                    MessageBox.Show("El costo debe ser mayor a 0");
+                }
+            }
+        }
     }
 }
