@@ -30,6 +30,7 @@
         {
             pnMenu = new Panel();
             pnLogo = new Panel();
+            pictureBox1 = new PictureBox();
             btnFormCitas = new Button();
             btnFormPagos = new Button();
             btnFormServicios = new Button();
@@ -37,19 +38,18 @@
             btnFormUsuarios = new Button();
             btnFormEmpleados = new Button();
             pnNombreCD = new Panel();
-            lblTipoEmpleado = new Label();
+            btnCambiarUsuario = new Button();
             pnTitulo = new Panel();
             panel1 = new Panel();
             btnClose = new Button();
             lblTitulo = new Label();
             pnCentral = new Panel();
-            pictureBox1 = new PictureBox();
             pnMenu.SuspendLayout();
             pnLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnNombreCD.SuspendLayout();
             pnTitulo.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnMenu
@@ -65,7 +65,6 @@
             pnMenu.Controls.Add(pnNombreCD);
             pnMenu.Dock = DockStyle.Left;
             pnMenu.Location = new Point(0, 0);
-            pnMenu.Margin = new Padding(3, 2, 3, 2);
             pnMenu.Name = "pnMenu";
             pnMenu.Size = new Size(200, 600);
             pnMenu.TabIndex = 0;
@@ -75,9 +74,21 @@
             pnLogo.Controls.Add(pictureBox1);
             pnLogo.Dock = DockStyle.Bottom;
             pnLogo.Location = new Point(0, 450);
+            pnLogo.Margin = new Padding(3, 4, 3, 4);
             pnLogo.Name = "pnLogo";
             pnLogo.Size = new Size(200, 150);
             pnLogo.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+
+            pictureBox1.Image = Image.FromFile(@"..\..\..\Assets\images\logo_dental_02.png"); ;
+            pictureBox1.Location = new Point(50, 25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 100);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // btnFormCitas
             // 
@@ -86,11 +97,10 @@
             btnFormCitas.FlatStyle = FlatStyle.Flat;
             btnFormCitas.Font = new Font("Nirmala UI", 12F);
             btnFormCitas.ForeColor = Color.White;
-            btnFormCitas.Location = new Point(0, 200);
-            btnFormCitas.Margin = new Padding(3, 2, 3, 2);
+            btnFormCitas.Location = new Point(0, 250);
             btnFormCitas.Name = "btnFormCitas";
-            btnFormCitas.Padding = new Padding(15, 0, 0, 0);
-            btnFormCitas.Size = new Size(200, 30);
+            btnFormCitas.Padding = new Padding(17, 0, 0, 0);
+            btnFormCitas.Size = new Size(200, 40);
             btnFormCitas.TabIndex = 6;
             btnFormCitas.Text = "Citas";
             btnFormCitas.TextAlign = ContentAlignment.MiddleLeft;
@@ -104,11 +114,10 @@
             btnFormPagos.FlatStyle = FlatStyle.Flat;
             btnFormPagos.Font = new Font("Nirmala UI", 12F);
             btnFormPagos.ForeColor = Color.White;
-            btnFormPagos.Location = new Point(0, 170);
-            btnFormPagos.Margin = new Padding(3, 2, 3, 2);
+            btnFormPagos.Location = new Point(0, 210);
             btnFormPagos.Name = "btnFormPagos";
-            btnFormPagos.Padding = new Padding(15, 0, 0, 0);
-            btnFormPagos.Size = new Size(200, 30);
+            btnFormPagos.Padding = new Padding(17, 0, 0, 0);
+            btnFormPagos.Size = new Size(200, 40);
             btnFormPagos.TabIndex = 5;
             btnFormPagos.Text = "Pagos";
             btnFormPagos.TextAlign = ContentAlignment.MiddleLeft;
@@ -122,11 +131,10 @@
             btnFormServicios.FlatStyle = FlatStyle.Flat;
             btnFormServicios.Font = new Font("Nirmala UI", 12F);
             btnFormServicios.ForeColor = Color.White;
-            btnFormServicios.Location = new Point(0, 140);
-            btnFormServicios.Margin = new Padding(3, 2, 3, 2);
+            btnFormServicios.Location = new Point(0, 170);
             btnFormServicios.Name = "btnFormServicios";
-            btnFormServicios.Padding = new Padding(15, 0, 0, 0);
-            btnFormServicios.Size = new Size(200, 30);
+            btnFormServicios.Padding = new Padding(17, 0, 0, 0);
+            btnFormServicios.Size = new Size(200, 40);
             btnFormServicios.TabIndex = 4;
             btnFormServicios.Text = "Servicios";
             btnFormServicios.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,11 +148,10 @@
             btnFormPacientes.FlatStyle = FlatStyle.Flat;
             btnFormPacientes.Font = new Font("Nirmala UI", 12F);
             btnFormPacientes.ForeColor = Color.White;
-            btnFormPacientes.Location = new Point(0, 110);
-            btnFormPacientes.Margin = new Padding(3, 2, 3, 2);
+            btnFormPacientes.Location = new Point(0, 130);
             btnFormPacientes.Name = "btnFormPacientes";
-            btnFormPacientes.Padding = new Padding(15, 0, 0, 0);
-            btnFormPacientes.Size = new Size(200, 30);
+            btnFormPacientes.Padding = new Padding(17, 0, 0, 0);
+            btnFormPacientes.Size = new Size(200, 40);
             btnFormPacientes.TabIndex = 3;
             btnFormPacientes.Text = "Pacientes";
             btnFormPacientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -158,11 +165,10 @@
             btnFormUsuarios.FlatStyle = FlatStyle.Flat;
             btnFormUsuarios.Font = new Font("Nirmala UI", 12F);
             btnFormUsuarios.ForeColor = Color.White;
-            btnFormUsuarios.Location = new Point(0, 80);
-            btnFormUsuarios.Margin = new Padding(3, 2, 3, 2);
+            btnFormUsuarios.Location = new Point(0, 90);
             btnFormUsuarios.Name = "btnFormUsuarios";
-            btnFormUsuarios.Padding = new Padding(15, 0, 0, 0);
-            btnFormUsuarios.Size = new Size(200, 30);
+            btnFormUsuarios.Padding = new Padding(17, 0, 0, 0);
+            btnFormUsuarios.Size = new Size(200, 40);
             btnFormUsuarios.TabIndex = 2;
             btnFormUsuarios.Text = "Usuarios";
             btnFormUsuarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -177,10 +183,9 @@
             btnFormEmpleados.Font = new Font("Nirmala UI", 12F);
             btnFormEmpleados.ForeColor = Color.White;
             btnFormEmpleados.Location = new Point(0, 50);
-            btnFormEmpleados.Margin = new Padding(3, 2, 3, 2);
             btnFormEmpleados.Name = "btnFormEmpleados";
-            btnFormEmpleados.Padding = new Padding(15, 0, 0, 0);
-            btnFormEmpleados.Size = new Size(200, 30);
+            btnFormEmpleados.Padding = new Padding(17, 0, 0, 0);
+            btnFormEmpleados.Size = new Size(200, 40);
             btnFormEmpleados.TabIndex = 1;
             btnFormEmpleados.Text = "Empleados";
             btnFormEmpleados.TextAlign = ContentAlignment.MiddleLeft;
@@ -189,25 +194,28 @@
             // 
             // pnNombreCD
             // 
-            pnNombreCD.Controls.Add(lblTipoEmpleado);
+            pnNombreCD.Controls.Add(btnCambiarUsuario);
             pnNombreCD.Dock = DockStyle.Top;
             pnNombreCD.Location = new Point(0, 0);
-            pnNombreCD.Margin = new Padding(3, 2, 3, 2);
             pnNombreCD.Name = "pnNombreCD";
             pnNombreCD.Size = new Size(200, 50);
             pnNombreCD.TabIndex = 0;
             // 
-            // lblTipoEmpleado
+            // btnCambiarUsuario
             // 
-            lblTipoEmpleado.Anchor = AnchorStyles.None;
-            lblTipoEmpleado.Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTipoEmpleado.ForeColor = Color.White;
-            lblTipoEmpleado.Location = new Point(20, 10);
-            lblTipoEmpleado.Name = "lblTipoEmpleado";
-            lblTipoEmpleado.Size = new Size(160, 30);
-            lblTipoEmpleado.TabIndex = 1;
-            lblTipoEmpleado.Text = "Tipo";
-            lblTipoEmpleado.TextAlign = ContentAlignment.MiddleCenter;
+            btnCambiarUsuario.BackColor = Color.FromArgb(52, 143, 108);
+            btnCambiarUsuario.FlatAppearance.BorderSize = 0;
+            btnCambiarUsuario.FlatStyle = FlatStyle.Flat;
+            btnCambiarUsuario.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCambiarUsuario.ForeColor = Color.White;
+            btnCambiarUsuario.Location = new Point(20, 5);
+            btnCambiarUsuario.Margin = new Padding(3, 0, 3, 0);
+            btnCambiarUsuario.Name = "btnCambiarUsuario";
+            btnCambiarUsuario.Size = new Size(160, 40);
+            btnCambiarUsuario.TabIndex = 0;
+            btnCambiarUsuario.Text = "Tipo";
+            btnCambiarUsuario.UseVisualStyleBackColor = false;
+            btnCambiarUsuario.Click += btnCambiarUsuario_Click;
             // 
             // pnTitulo
             // 
@@ -216,7 +224,6 @@
             pnTitulo.Controls.Add(lblTitulo);
             pnTitulo.Dock = DockStyle.Top;
             pnTitulo.Location = new Point(200, 0);
-            pnTitulo.Margin = new Padding(3, 2, 3, 2);
             pnTitulo.Name = "pnTitulo";
             pnTitulo.Size = new Size(1000, 50);
             pnTitulo.TabIndex = 1;
@@ -235,7 +242,7 @@
             btnClose.BackColor = Color.FromArgb(52, 143, 108);
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
             btnClose.Location = new Point(10, 10);
             btnClose.Name = "btnClose";
@@ -247,53 +254,42 @@
             // 
             // lblTitulo
             // 
-            lblTitulo.Font = new Font("Nirmala UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(150, 10);
+            lblTitulo.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(150, 5);
+            lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(650, 30);
+            lblTitulo.Size = new Size(650, 40);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Bienvenido";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitulo.TextAlign = ContentAlignment.TopCenter;
             // 
             // pnCentral
             // 
             pnCentral.BackColor = Color.White;
             pnCentral.Dock = DockStyle.Fill;
             pnCentral.Location = new Point(200, 50);
-            pnCentral.Margin = new Padding(3, 2, 3, 2);
             pnCentral.Name = "pnCentral";
             pnCentral.Size = new Size(1000, 550);
             pnCentral.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.logo_dental_02;
-            pictureBox1.Location = new Point(50, 25);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 100);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // MenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 600);
             Controls.Add(pnCentral);
             Controls.Add(pnTitulo);
             Controls.Add(pnMenu);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuForm";
             pnMenu.ResumeLayout(false);
             pnLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnNombreCD.ResumeLayout(false);
             pnTitulo.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -313,7 +309,7 @@
         private Panel pnLogo;
         private Panel panel1;
         private Button btnClose;
-        private Label lblTipoEmpleado;
         private PictureBox pictureBox1;
+        private Button btnCambiarUsuario;
     }
 }

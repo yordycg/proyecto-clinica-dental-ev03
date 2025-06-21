@@ -23,6 +23,7 @@ namespace clinica_dental_ev03
         {
             InitializeComponent();
             LoadDataEmpleado();
+            this.AutoScaleMode = AutoScaleMode.None;
         }
 
         private void LoadDataEmpleado()
@@ -34,20 +35,20 @@ namespace clinica_dental_ev03
             if (empleadoActual != null)
             {
                 tipoEmpleadoActual = empleadoActual.TipoEmpleado.Nombre;
-                lblTipoEmpleado.Text = tipoEmpleadoActual;
+                btnCambiarUsuario.Text = tipoEmpleadoActual;
 
                 switch (tipoEmpleadoActual.ToLower())
                 {
                     // "admin": puede ver todo.
                     case "auxiliar":
                     case "dentista":
-                    btnFormPagos.Visible = false;
-                    btnFormEmpleados.Visible = false;
-                    break;
+                        btnFormPagos.Visible = false;
+                        btnFormEmpleados.Visible = false;
+                        break;
                     case "secretari@":
-                    btnFormEmpleados.Visible = false;
-                    btnFormUsuarios.Visible = false;
-                    break;
+                        btnFormEmpleados.Visible = false;
+                        btnFormUsuarios.Visible = false;
+                        break;
                 }
             }
         }
@@ -136,6 +137,13 @@ namespace clinica_dental_ev03
             {
                 Application.Exit();
             }
+        }
+
+        private void btnCambiarUsuario_Click(object sender, EventArgs e)
+        {
+            LoginForm newLogin = new();
+            newLogin.Show();
+            this.Hide();
         }
     }
 }
