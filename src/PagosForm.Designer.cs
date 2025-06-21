@@ -57,6 +57,7 @@
             dgvCitas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCitas.Location = new Point(50, 25);
             dgvCitas.Name = "dgvCitas";
+            dgvCitas.RowHeadersWidth = 51;
             dgvCitas.Size = new Size(900, 150);
             dgvCitas.TabIndex = 0;
             dgvCitas.MouseClick += dgvCitas_MouseClick;
@@ -111,16 +112,18 @@
             dgvPagos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPagos.Location = new Point(350, 200);
             dgvPagos.Name = "dgvPagos";
+            dgvPagos.RowHeadersWidth = 51;
             dgvPagos.Size = new Size(600, 300);
             dgvPagos.TabIndex = 19;
             dgvPagos.MouseClick += dgvPagos_MouseClick;
             // 
             // cbMetodoPago
             // 
+            cbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMetodoPago.FormattingEnabled = true;
             cbMetodoPago.Location = new Point(153, 201);
             cbMetodoPago.Name = "cbMetodoPago";
-            cbMetodoPago.Size = new Size(150, 23);
+            cbMetodoPago.Size = new Size(150, 28);
             cbMetodoPago.TabIndex = 51;
             // 
             // label5
@@ -134,11 +137,11 @@
             // 
             // cbEstadoPago
             // 
+            cbEstadoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstadoPago.FormattingEnabled = true;
-            cbEstadoPago.Items.AddRange(new object[] { "Femenino", "Masculino" });
             cbEstadoPago.Location = new Point(153, 240);
             cbEstadoPago.Name = "cbEstadoPago";
-            cbEstadoPago.Size = new Size(150, 23);
+            cbEstadoPago.Size = new Size(150, 28);
             cbEstadoPago.TabIndex = 49;
             // 
             // label8
@@ -154,7 +157,7 @@
             // 
             txtCitaId.Location = new Point(153, 84);
             txtCitaId.Name = "txtCitaId";
-            txtCitaId.Size = new Size(150, 23);
+            txtCitaId.Size = new Size(150, 27);
             txtCitaId.TabIndex = 47;
             // 
             // label2
@@ -179,7 +182,7 @@
             // 
             txtMonto.Location = new Point(153, 123);
             txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(150, 23);
+            txtMonto.Size = new Size(150, 27);
             txtMonto.TabIndex = 43;
             txtMonto.KeyPress += txtMonto_KeyPress;
             // 
@@ -198,7 +201,7 @@
             dtpFecha.Format = DateTimePickerFormat.Custom;
             dtpFecha.Location = new Point(153, 163);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(150, 23);
+            dtpFecha.Size = new Size(150, 27);
             dtpFecha.TabIndex = 52;
             // 
             // pnDGVCitas
@@ -239,7 +242,7 @@
             // 
             // PagosForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1000, 550);
