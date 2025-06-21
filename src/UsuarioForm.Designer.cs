@@ -40,8 +40,8 @@
             txtPassRep = new TextBox();
             label5 = new Label();
             pnForm = new Panel();
-            pnDGV = new Panel();
             cbRun = new ComboBox();
+            pnDGV = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             pnForm.SuspendLayout();
             pnDGV.SuspendLayout();
@@ -53,7 +53,6 @@
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Location = new Point(0, 50);
             dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new Size(600, 450);
             dgvUsuarios.TabIndex = 54;
             dgvUsuarios.Text = "dataGridView1";
@@ -66,9 +65,10 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Nirmala UI", 9F);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(137, 342);
+            btnEliminar.Location = new Point(130, 316);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(86, 31);
             btnEliminar.TabIndex = 53;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -81,9 +81,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Nirmala UI", 9F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(228, 342);
+            btnGuardar.Location = new Point(234, 316);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(86, 31);
             btnGuardar.TabIndex = 52;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -95,9 +96,10 @@
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Nirmala UI", 9F);
-            btnLimpiar.Location = new Point(46, 342);
+            btnLimpiar.Location = new Point(26, 316);
+            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.Size = new Size(86, 31);
             btnLimpiar.TabIndex = 51;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -105,35 +107,37 @@
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(161, 243);
+            txtPass.Location = new Point(157, 184);
+            txtPass.Margin = new Padding(3, 4, 3, 4);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
-            txtPass.Size = new Size(150, 23);
+            txtPass.Size = new Size(171, 27);
             txtPass.TabIndex = 46;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(41, 246);
+            label4.Location = new Point(20, 188);
             label4.Name = "label4";
-            label4.Size = new Size(67, 15);
+            label4.Size = new Size(83, 20);
             label4.TabIndex = 45;
             label4.Text = "Contraseña";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(161, 204);
+            txtNombreUsuario.Location = new Point(157, 132);
+            txtNombreUsuario.Margin = new Padding(3, 4, 3, 4);
             txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(150, 23);
+            txtNombreUsuario.Size = new Size(171, 27);
             txtNombreUsuario.TabIndex = 44;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(41, 207);
+            label3.Location = new Point(20, 136);
             label3.Name = "label3";
-            label3.Size = new Size(94, 15);
+            label3.Size = new Size(118, 20);
             label3.TabIndex = 43;
             label3.Text = "Nombre Usuario";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -141,27 +145,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(41, 171);
+            label2.Location = new Point(20, 88);
             label2.Name = "label2";
-            label2.Size = new Size(84, 15);
+            label2.Size = new Size(106, 20);
             label2.TabIndex = 55;
             label2.Text = "Run Empleado";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtPassRep
             // 
-            txtPassRep.Location = new Point(161, 282);
+            txtPassRep.Location = new Point(157, 236);
+            txtPassRep.Margin = new Padding(3, 4, 3, 4);
             txtPassRep.Name = "txtPassRep";
             txtPassRep.PasswordChar = '*';
-            txtPassRep.Size = new Size(150, 23);
+            txtPassRep.Size = new Size(171, 27);
             txtPassRep.TabIndex = 58;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(41, 285);
+            label5.Location = new Point(20, 240);
             label5.Name = "label5";
-            label5.Size = new Size(107, 15);
+            label5.Size = new Size(135, 20);
             label5.TabIndex = 57;
             label5.Text = "Repetir Contraseña";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -185,6 +190,16 @@
             pnForm.Size = new Size(350, 550);
             pnForm.TabIndex = 59;
             // 
+            // cbRun
+            // 
+            cbRun.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRun.FormattingEnabled = true;
+            cbRun.Location = new Point(157, 84);
+            cbRun.Margin = new Padding(3, 4, 3, 4);
+            cbRun.Name = "cbRun";
+            cbRun.Size = new Size(171, 28);
+            cbRun.TabIndex = 59;
+            // 
             // pnDGV
             // 
             pnDGV.Controls.Add(dgvUsuarios);
@@ -194,24 +209,15 @@
             pnDGV.Size = new Size(650, 550);
             pnDGV.TabIndex = 60;
             // 
-            // cbRun
-            // 
-            cbRun.FormattingEnabled = true;
-            cbRun.Location = new Point(161, 168);
-            cbRun.Name = "cbRun";
-            cbRun.Size = new Size(150, 23);
-            cbRun.TabIndex = 59;
-            // 
             // UsuarioForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1000, 550);
             Controls.Add(pnForm);
             Controls.Add(pnDGV);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "UsuarioForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "UsuarioForm";
