@@ -78,5 +78,10 @@ namespace clinica_dental_ev03
                 Logg();
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
